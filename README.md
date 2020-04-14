@@ -3,7 +3,6 @@
   <h3 align="center">Openpandemic App - Analytics</h3>
   <p align="center">
     <img align="center" alt="We love Opensource" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" />
-    <img align="center" alt="License check" src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopenpandemic%2Fopenpandemic-analytics.svg?type=shield" />
   </p>
 </p>
 
