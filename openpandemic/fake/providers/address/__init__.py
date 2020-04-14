@@ -2,8 +2,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
 import os
-import csv
-from typing import List, Union
+from typing import List, Any
 
 import pandas as pd
 
@@ -33,5 +32,9 @@ class Provider(AddressProvider):
 
         return arr
 
-    def location_postcode(self):
-        pass
+    def location_postcode(self) -> Any:
+        """
+        Get full location qith postcode
+        :return: An instance of location postcode
+        """
+        return None

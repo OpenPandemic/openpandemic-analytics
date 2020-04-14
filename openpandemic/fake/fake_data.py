@@ -60,26 +60,26 @@ def run_faker(
             else:
                 person_id = faker.word(ext_word_list=person_ids)
 
-            region = str(faker.random_int(0, 51))
+            location_postcode = faker.location_postcode()
+            region = location_postcode.ccaa_iso
             test_id = faker.md5()
             gender = faker.word(ext_word_list=["man", "woman"])
             birth_date = faker.date_of_birth().strftime("%m/%Y")
-            location_postal_code = faker.location_postcode()
-            arr_location_postal_code = location_postal_code.split(',')
-            postal_code = arr_location_postal_code[0]
-            country = arr_location_postal_code[3]
-
+            postcode = str(location_postcode.postcode)
+            province = location_postcode.get_sublocale_value('province')
+            country = location_postcode.get_sublocale_value('country')
+            location_postcode_repr = f'{postcode},{location_postcode.location},{province},{country}'
             questions, test_result = faker.covid19_questions_result()
 
             evaluation = {
                 "PERSON_ID": person_id,
                 "GENDER": gender,
                 "BIRTHMONTH_MMYYYY": birth_date,
-                "POSTAL_CODE": postal_code,
+                "POSTAL_CODE": postcode,
                 "REGION": region,
                 "COUNTRY": country,
                 "ADDRESS_LOCATION": {
-                    "POSTAL_CODE": location_postal_code
+                    "POSTAL_CODE": location_postcode_repr
                 },
                 "TEST": {
                     "ID": test_id,
@@ -87,7 +87,7 @@ def run_faker(
                     "TIME": t[0].strftime('%Y-%m-%d %H:%M:%S %Z'),
                     "LOCATION": {
                         "NEIGHBORHOOD": None,
-                        "POSTAL_CODE": location_postal_code,
+                        "POSTAL_CODE": location_postcode_repr,
                         "POLITICAL": None
                     },
                     "QUESTIONS": questions
@@ -110,5 +110,5 @@ if __name__ == '__main__':
     run_faker(
         faker=_faker,
         data_path='../../data/ES/fake_data_es_v1.json',
-        size=50,
-        num_re_eval=23)
+        size=5000,
+        num_re_eval=2333)
