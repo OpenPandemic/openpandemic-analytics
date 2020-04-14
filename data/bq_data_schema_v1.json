@@ -1,0 +1,136 @@
+[
+  {
+    "description": null,
+    "mode": "REQUIRED",
+    "name": "PERSON_ID",
+    "type": "STRING"
+  },
+  {
+    "description": null,
+    "mode": "REQUIRED",
+    "name": "GENDER",
+    "type": "STRING"
+  },
+  {
+    "description": null,
+    "mode": "REQUIRED",
+    "name": "BIRTHMONTH_MMYYYY",
+    "type": "STRING"
+  },
+  {
+    "description": null,
+    "mode": "REQUIRED",
+    "name": "POSTAL_CODE",
+    "type": "STRING"
+  },
+  {
+    "description": null,
+    "mode": "REQUIRED",
+    "name": "REGION",
+    "type": "STRING"
+  },
+  {
+    "description": null,
+    "mode": "REQUIRED",
+    "name": "COUNTRY",
+    "type": "STRING"
+  },
+  {
+    "description": null,
+    "fields": [
+      {
+        "description": null,
+        "mode": "NULLABLE",
+        "name": "NEIGHBORHOOD",
+        "type": "STRING"
+      },
+      {
+        "description": null,
+        "mode": "NULLABLE",
+        "name": "POSTAL_CODE",
+        "type": "STRING"
+      },
+      {
+        "description": null,
+        "mode": "NULLABLE",
+        "name": "POLITICAL",
+        "type": "STRING"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "ADDRESS_LOCATION",
+    "type": "RECORD"
+  },
+  {
+    "description": null,
+    "fields": [
+      {
+        "description": null,
+        "mode": "REQUIRED",
+        "name": "ID",
+        "type": "STRING"
+      },
+      {
+        "description": null,
+        "mode": "REQUIRED",
+        "name": "RESULT",
+        "type": "STRING"
+      },
+      {
+        "description": null,
+        "mode": "REQUIRED",
+        "name": "TIME",
+        "type": "TIMESTAMP"
+      },
+      {
+        "description": null,
+        "fields": [
+          {
+            "description": null,
+            "mode": "NULLABLE",
+            "name": "NEIGHBORHOOD",
+            "type": "STRING"
+          },
+          {
+            "description": null,
+            "mode": "NULLABLE",
+            "name": "POSTAL_CODE",
+            "type": "STRING"
+          },
+          {
+            "description": null,
+            "mode": "NULLABLE",
+            "name": "POLITICAL",
+            "type": "STRING"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "LOCATION",
+        "type": "RECORD"
+      },
+      {
+        "description": null,
+        "fields": [
+          {
+            "description": null,
+            "mode": "NULLABLE",
+            "name": "KEY",
+            "type": "STRING"
+          },
+          {
+            "description": null,
+            "mode": "NULLABLE",
+            "name": "VALUE",
+            "type": "STRING"
+          }
+        ],
+        "mode": "REPEATED",
+        "name": "QUESTIONS",
+        "type": "RECORD"
+      }
+    ],
+    "mode": "REQUIRED",
+    "name": "TEST",
+    "type": "RECORD"
+  }
+]

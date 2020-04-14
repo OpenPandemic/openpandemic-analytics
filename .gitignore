@@ -1,0 +1,10 @@
+#Ignore metafiles
+.*
+!.gitignore
+
+#Ignore python reources
+*.py[co]
+/build/
+/dist/
+*.egg-*/
+__pycache__
