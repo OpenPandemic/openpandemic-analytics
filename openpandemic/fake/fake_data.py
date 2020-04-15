@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
-
+import os
+import sys
+import argparse
 import json
 
 from typing import List
@@ -19,25 +21,25 @@ from openpandemic.fake.providers.covid19 import Provider as Covid19Provider
 
 def run_faker(
         faker: Faker,
-        data_path: str = None,
-        size: int = 500,
-        num_re_eval: int = 100,
-        num_days: int = 60) -> None:
+        data_path: str,
+        nrows: int,
+        nrevals: int,
+        ndays: int) -> None:
     """
     Run a faker generator to get fake data to openpandemic analytics
     :param faker: Faker instance
     :param data_path: Root directory of data files
-    :param size: The total number of entries
-    :param num_re_eval: Number of entries which person has mora than one evaluation
-    :param num_days: time period in days
-    :return: A dta file is written on the
+    :param nrows: The total number of entries
+    :param nrevals: Number of entries which person has mora than one evaluation
+    :param ndays: time period in days
+    :return: A data file is written on the
     """
 
     # second per day / evaluations per day, lineal distribution
-    precision_seconds = 60 * 60 * 24 / (size / num_days)
+    precision_seconds = 60 * 60 * 24 / (nrows / ndays)
 
     time_series = faker.time_series(
-        start_date=f'-{num_days}d',
+        start_date=f'-{ndays}d',
         end_date='now',
         precision=precision_seconds,
         tzinfo=timezone.utc)
@@ -50,11 +52,11 @@ def run_faker(
     logger.info('Generating fake data ...')
 
     with open(data_file_path, 'w') as data_file:
-        logger.info('Writing %s registries into %s file ...', size, data_file_path)
+        logger.info('Writing %s registries into %s file ...', nrows, data_file_path)
         i = 0
         person_ids: List[str] = []
         for t in time_series:
-            if i < (size - num_re_eval):
+            if i < (nrows - nrevals):
                 person_id = faker.md5()
                 person_ids.append(person_id)
             else:
@@ -100,15 +102,50 @@ def run_faker(
         logger.info('All data were written in: %.2gs seconds', time.time() - start_time)
 
 
-if __name__ == '__main__':
+def main(argv=sys.argv[1:]):
 
-    _faker = Faker('es_ES')
+    parser = argparse.ArgumentParser(prog='openpandemic',
+                                     add_help='''Fake data generator for evaluations''')
 
-    _faker.add_provider(AddressProvider)
-    _faker.add_provider(Covid19Provider)
+    parser.add_argument('-l', '--locale', default='es_ES',
+                        help='Locale for the fake data generatorDataset name')
+
+    parser.add_argument('-nrows', type=int, default=500, required=True,
+                        help='Number of entries')
+
+    parser.add_argument('-nrevals', type=int, default=400, required=True,
+                        help='Numbre of user which have more than one evaluation')
+
+    parser.add_argument('-ndays', type=int, default=60, required=True,
+                        help='Number of days. The period of time when evaluations happen.')
+
+    parser.add_argument('-df', '--data_file', required=True,
+                        help='File where data will be written into.')
+
+    args = parser.parse_args(argv)
+
+    faker = Faker(args.locale)
+
+    faker.add_provider(AddressProvider)
+    faker.add_provider(Covid19Provider)
+
+    dirname = os.getcwd()
+    data_file = os.path.join(dirname, args.data_file)
 
     run_faker(
-        faker=_faker,
-        data_path='../../data/ES/fake_data_es_v1.json',
-        size=5000,
-        num_re_eval=2333)
+        faker=faker,
+        data_path=data_file,
+        nrows=args.nrows,
+        nrevals=args.nrevals,
+        ndays=args.ndays
+    )
+
+
+if __name__ == "__main__":
+
+    try:
+        main(sys.argv[1:])
+    except KeyboardInterrupt:
+        logger.warning("... command was interrupted")
+        sys.exit(2)
+    sys.exit(0)

@@ -61,3 +61,9 @@ bq-upload-data: ## Upload data into a existing table
 	@docker exec gcloud-bastion \
 	   sh -c "bq load --source_format=NEWLINE_DELIMITED_JSON $(DATASET).$(TABLE) $(DOCKER_DATA_DIR)/ES/fake_data_es_v1.json $(DOCKER_DATA_DIR)/bq_data_schema_v1.json \
 			  && bq show $(DATASET).$(TABLE)"
+
+.PHONY: bq-download-data
+bq-download-data: ## Dwonload data
+	@docker exec gcloud-bastion \
+	   sh -c "bq extra --source_format=NEWLINE_DELIMITED_JSON $(DATASET).$(TABLE) $(DOCKER_DATA_DIR)/ES/fake_data_es_v1.json $(DOCKER_DATA_DIR)/bq_data_schema_v1.json \
+			  && bq show $(DATASET).$(TABLE)"

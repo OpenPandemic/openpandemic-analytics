@@ -1,0 +1,14 @@
+SELECT
+ COUNTRY,
+ REGION,
+ PERSON_ID,
+ GENDER,
+ BIRTHMONTH_MMYYYY,
+ POSTAL_CODE,
+ ADDRESS_LOCATION.POSTAL_CODE as address_location_postal_code,
+ TEST.ID as test_id,
+ TEST.TIME as test_time,
+ TEST.RESULT as test_result,
+ TEST.LOCATION.POSTAL_CODE as test_location_postal_code
+FROM ${TABLE_ID}
+ORDER BY TEST.TIME DESC
