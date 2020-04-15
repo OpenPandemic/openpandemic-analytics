@@ -125,7 +125,7 @@ We've created a Data Studio report to outline the most interesting information a
 
 ![Google Data Studio Report](img/datastudio.png)
 
-![Here we have the shared report](https://datastudio.google.com/s/uDMlRcq6eiY) using the spreadsheets placed in the link above so that anyone can try it out.
+![Here we have the shared report](https://datastudio.google.com/reporting/fe8c2d0f-3531-48d5-932a-e621fbfbd0a5) using the spreadsheets placed in the link above so that anyone can try it out.
 
 ## Cleaning
 
