@@ -108,7 +108,7 @@ export TABLE_ID=openpandemic-analytics.openpandemic_test.data_test_es_v1
 pipenv run python -m openpandemic.bq.download_data -s ";" -f "data_test_es_v1.csv" -q "$(envsubst < data/sql/data_short.sql)"
 ```
 
-We've placed some files in a public Google Drive for anyone which wants to play with them: https://drive.google.com/open?id=1T8uLUfAj6XRD-kJNTy2buix5QJEJxW3n 
+We've placed some files in [a public Google Drive folder for anyone](https://drive.google.com/open?id=1T8uLUfAj6XRD-kJNTy2buix5QJEJxW3n) which wants to play with them. 
 
 ## Notebooks
 
@@ -125,7 +125,7 @@ We've created a Data Studio report to outline the most interesting information a
 
 ![Google Data Studio Report](img/datastudio.png)
 
-![Here we have the shared report](https://datastudio.google.com/reporting/fe8c2d0f-3531-48d5-932a-e621fbfbd0a5) using the spreadsheets placed in the link above so that anyone can try it out.
+[Here we have the shared report](https://datastudio.google.com/reporting/fe8c2d0f-3531-48d5-932a-e621fbfbd0a5) using the spreadsheets placed in the link above so that anyone can try it out.
 
 ## Cleaning
 
