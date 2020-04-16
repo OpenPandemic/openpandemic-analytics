@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://www.openpandemic.io"><img alt="openpandemic" src="https://avatars2.githubusercontent.com/u/63398478?s=100&v=4" width=100 /></a>
-  <h3 align="center">Openpandemic App - Analytics</h3>
+  <h3 align="center">Openpandemic - Analytics</h3>
   <p align="center">
     <img align="center" alt="We love Opensource" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" />
   </p>
