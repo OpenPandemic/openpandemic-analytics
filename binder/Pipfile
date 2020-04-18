@@ -4,10 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-google-cloud-bigquery = "1.21.0"
-google-colab = "1.0.0"
-numpy = "1.18.2"
-pandas = "1.0.3"
+google-cloud-bigquery = "*"
+google-colab = "*"
+numpy = "*"
+pandas = "*"
 
 [dev-packages]
 pytest = "*"
