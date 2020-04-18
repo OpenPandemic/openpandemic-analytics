@@ -8,8 +8,9 @@ Notebooks placed here was created from Google Collaboratory, this is a great too
 
 Catalog of notebooks:
 
-- Covid-19
+- [Covid-19](covid19)
 
+[Use the public nbviewer service to view all notebooks](https://nbviewer.jupyter.org/github/openpandemic/openpandemic-analytics/tree/master/notebooks/) with better rendering than from Github directly.
 
 ## Jupyter environment
 
@@ -23,8 +24,4 @@ Any change in your notebook could be 'committed' to this Github repository direc
 
 ### Binder
 
-WIP
-
-### JupyterLab
-
-WIP
+Notebooks could be run on [Binder](https://mybinder.org/), just click the regarding badge in notebooks and get a remote environment.
