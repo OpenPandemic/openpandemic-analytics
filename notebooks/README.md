@@ -21,7 +21,3 @@ Try out our notebooks from your favourite Jupyter environment. We encorage you t
 Notebooks come with a badge which redirects to the Google Collaboratory, then Colab try to crate a copy in your Google Drive.
 
 Any change in your notebook could be 'committed' to this Github repository directly by using the option ***File>Save a copy in Github...*** and providing the suitable notebooks' path.
-
-### Binder
-
-Notebooks could be run on [Binder](https://mybinder.org/), just click the regarding badge in notebooks and get a remote environment.
