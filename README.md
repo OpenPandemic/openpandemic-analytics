@@ -50,7 +50,7 @@ In order to use the data provided by the project `openpandemic-back`, you need t
 
 ### Generate test data
 
-A lot of times we need data to get start with analytics task, so we could use synthetic data (not always), for this reason we've add a fake provider.
+A lot of times we need data to get started with analytic tasks, so we could use synthetic data (not always), for this reason we've add a fake provider.
 
 To generate `fake data` for covid19 symptoms evaluations we could use the python module:
 
